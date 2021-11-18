@@ -1,0 +1,19 @@
+.card {
+  background-color: #fffffe;
+  border: 3px solid #001e1d;
+  border-radius: 10px;
+
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__entry {
+  width: 340px;
+  max-width: 340px;
+}
+
+.card__create-chat {
+  width: 580px;
+  max-width: 580px;
+}

@@ -1,0 +1,15 @@
+<div id="chatPreview" class="{{styles.info_wrapper}} {{#if isActive}}{{styles.info_wrapper__yellow}}{{/if}}">
+  {{> avatar}}
+  <div class="{{styles.info}}">
+    <div class="{{styles.info_section}}">
+      <p class="{{styles.info_name}} {{styles.info_text}}">{{name}}</p>
+      <p>{{time}}</p>
+    </div>
+    <div class="{{styles.info_section}}">
+      <p class="{{styles.info_text}}">{{message}}</p>
+      {{#if showUnreadCount}}
+      <div class="{{styles.info_unread-count}}">{{unreadCount}}</div>
+      {{/if}}
+    </div>
+  </div>
+</div>

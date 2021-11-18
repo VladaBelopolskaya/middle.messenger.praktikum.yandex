@@ -1,0 +1,14 @@
+<div class="{{styles.members}}">
+    <div class="{{styles.members_search}}">
+        {{> chatInput user=true}}
+        {{> button id="addUser" text="Add" green=true small=true}}
+    </div>
+    <p class="{{styles.members_title}}">Members</p>
+    <div class="{{styles.members_list}}">
+        <div class="{{styles.members_item}}">
+            {{> userInfo}}
+            <button id="removeMember" class="{{styles.members_item-remove}}"><img src="{{img}}" width="18" height="18"
+                    alt="Remove" /></button>
+        </div>
+    </div>
+</div>

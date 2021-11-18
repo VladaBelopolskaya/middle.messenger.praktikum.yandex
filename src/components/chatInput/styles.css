@@ -1,0 +1,19 @@
+.chat-input {
+  width: 100%;
+
+  background: #fffffe;
+  border: 1px solid #001e1d;
+  border-radius: 10px;
+  padding: 6px 8px;
+
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.chat-input__search {
+  padding-left: 37px;
+  background-image: url("../../icons/search.svg");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 8px 6px;
+}

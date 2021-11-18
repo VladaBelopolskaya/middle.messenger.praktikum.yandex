@@ -1,0 +1,19 @@
+.signin_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  max-height: 340px;
+}
+
+.signin_error {
+  font-size: 18px;
+  line-height: 18px;
+  color: #e16162;
+
+  padding-left: 37px;
+  background-image: url("../../icons/errorRed.svg");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 12px 0;
+}

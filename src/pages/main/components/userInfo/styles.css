@@ -1,0 +1,13 @@
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info p {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.user-info__white p {
+  color: #fffffe;
+}

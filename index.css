@@ -1,0 +1,53 @@
+body {
+  background-color: #004643;
+
+  font-family: "Open Sans", sans-serif;
+  color: #001e1d;
+}
+
+button,
+p {
+  font-family: "Open Sans", sans-serif;
+  color: #001e1d;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+div,
+button,
+a,
+input {
+  box-sizing: border-box;
+}
+
+p,
+span {
+  padding: 0;
+  margin: 0;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #001e1d;
+}
+
+a:visited {
+  text-decoration: none;
+  decoration: none;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

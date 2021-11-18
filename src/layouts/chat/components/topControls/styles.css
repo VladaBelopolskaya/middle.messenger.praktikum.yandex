@@ -1,0 +1,16 @@
+.controls_wrapper {
+  padding: 8px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  height: 50px;
+  min-height: 50px;
+}
+
+.controls_add-button {
+  width: 24px;
+  height: 14px;
+  margin: 0 8px 0 12px;
+}

@@ -1,0 +1,17 @@
+.title {
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.title__margin-bottom {
+  margin-bottom: 26px;
+}
+
+.title__white {
+  color: #fffffe;
+}
+
+.title__align-left {
+  text-align: left;
+}

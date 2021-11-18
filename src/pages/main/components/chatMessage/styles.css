@@ -1,0 +1,33 @@
+.message {
+  border: 1px solid #001e1d;
+  border-radius: 10px;
+  padding: 10px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.message:nth-last-child(-n + 1) {
+  margin-bottom: 0;
+}
+
+.message__gray {
+  background-color: #e8e4e6;
+}
+
+.message__green {
+  background-color: #abd1c6;
+}
+
+.message_info {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message_info-name {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.message_text {
+  line-height: 18px;
+}

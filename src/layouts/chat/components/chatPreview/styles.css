@@ -1,0 +1,60 @@
+.info_wrapper {
+  border-bottom: 1px solid #001e1d;
+  background-color: #fffffe;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 8px;
+
+  cursor: pointer;
+}
+
+.info_wrapper__yellow {
+  background-color: #f9bc60;
+}
+
+.info {
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.info_section {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info_section:nth-child(1) {
+  margin-bottom: 7px;
+}
+
+.info_section:nth-child(2) {
+  min-height: 20px;
+}
+
+.info_text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.info_name {
+  font-weight: bold;
+}
+
+.info_unread-count {
+  width: 20px;
+  height: 20px;
+  background-color: #f9bc60;
+  text-align: center;
+  border-radius: 50%;
+
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}

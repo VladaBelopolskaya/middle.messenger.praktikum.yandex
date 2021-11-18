@@ -1,0 +1,9 @@
+<div
+    class="{{styles.avatar}} {{#if small}}{{styles.avatar__small}}{{/if}} {{#if big}}{{styles.avatar__big}}{{/if}} {{#if white}}{{styles.avatar__white}}{{/if}}">
+    <img src="{{avatar}}" width="{{size}}" height="{{size}}" alt="{{alt}}">
+    {{#if canEditAvatar}}
+    <button class="{{styles.avatar_edit-button}}">
+        <img src="{{editIcon}}" alt="Edit" width="18" height="18">
+    </button>
+    {{/if}}
+</div>

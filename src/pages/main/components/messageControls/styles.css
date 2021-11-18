@@ -1,0 +1,14 @@
+.controls {
+  background-color: #004643;
+  border-top: 1px solid #001e1d;
+  padding: 8px 14px 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  min-height: 50px;
+}
+
+.controls button {
+  margin-left: 14px;
+}

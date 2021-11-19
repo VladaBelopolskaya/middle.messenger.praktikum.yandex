@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/*"
-  to = "dist/index.html"
+  to = "/index.html"
 
 [build]
   command = "npm run build"

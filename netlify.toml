@@ -1,10 +1,10 @@
 [[redirects]]
-  from = "/*"
+  from = "/chat/*"
   to = "/index.html"
   status = 200
 
 [[redirects]]
-  from = "/chat/*"
+  from = "/*"
   to = "/index.html"
   status = 200
 

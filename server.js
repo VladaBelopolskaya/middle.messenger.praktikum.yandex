@@ -3,11 +3,10 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-app.use("/", express.static("dist"));
-app.use("/chat/", express.static("dist"));
+app.use(express.static(`${__dirname}/dist`));
 
-app.get("/*", function (req, res) {
-  res.sendFile(__dirname + "/dist/index.html");
+app.use("*", function (req, res) {
+  res.sendFile(`${__dirname}/dist/index.html`);
 });
 
 app.listen(PORT, function () {

@@ -6,31 +6,32 @@ import template from "./index.hbs";
 import { PATH_NAMES, CHAT_PATH_NAMES, getMainPath } from "./utils/url";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const mainContainer = document.querySelector("#app");
   const mainPath = getMainPath();
 
   switch (mainPath) {
     case PATH_NAMES.REGISTRATION:
-      document.body.innerHTML = template({ registrationPage: true });
+      mainContainer.innerHTML = template({ registrationPage: true });
       setHandlerForRegistrationPage();
       break;
     case PATH_NAMES.CHAT:
-      document.body.innerHTML = template({
+      mainContainer.innerHTML = template({
         mainPage: true,
       });
       setHandlerForChatPage();
       break;
     case "/":
     case PATH_NAMES.SIGNIN:
-      document.body.innerHTML = template({ signinPage: true });
+      mainContainer.innerHTML = template({ signinPage: true });
       setHandlerForSigninPage();
       break;
     case PATH_NAMES.SERVICE_UNAVAILABLE:
-      document.body.innerHTML = template({
+      mainContainer.innerHTML = template({
         error: 500,
       });
       break;
     default:
-      document.body.innerHTML = template({
+      mainContainer.innerHTML = template({
         error: 404,
       });
   }

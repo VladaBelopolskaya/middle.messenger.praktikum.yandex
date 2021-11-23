@@ -5,5 +5,5 @@ import styles from "./styles.css";
 Handlebars.registerPartial("error", (context) => {
   const is404 = context.error === 404;
 
-  return template({ ...context, styles: styles, is404: is404 });
+  return template({ ...context, styles, is404 });
 });

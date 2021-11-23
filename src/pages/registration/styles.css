@@ -3,7 +3,7 @@
   line-height: 18px;
   text-align: center;
 
-  color: #001e1d;
+  color: var(--color-black);
 
   margin-top: 30px;
 }
@@ -13,5 +13,5 @@
 }
 
 .signin_link:hover {
-  color: #abd1c6;
+  color: var(--color-light-green);
 }

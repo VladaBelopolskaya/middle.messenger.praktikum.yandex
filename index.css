@@ -1,14 +1,24 @@
+:root {
+  --color-white: #fffffe;
+  --color-black: #001e1d;
+  --color-dark-green: #004643;
+  --color-light-green: #abd1c6;
+  --color-yellow: #f9bc60;
+  --color-red: #e16162;
+  --color-gray: #e8e4e6;
+}
+
 body {
-  background-color: #004643;
+  background-color: var(--color-dark-green);
 
   font-family: "Open Sans", sans-serif;
-  color: #001e1d;
+  color: var(--color-black);
 }
 
 button,
 p {
   font-family: "Open Sans", sans-serif;
-  color: #001e1d;
+  color: var(--color-black);
   font-size: 14px;
   line-height: 18px;
 }
@@ -33,7 +43,7 @@ button {
 
 a {
   text-decoration: none;
-  color: #001e1d;
+  color: var(--color-black);
 }
 
 a:visited {

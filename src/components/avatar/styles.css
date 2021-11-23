@@ -5,7 +5,7 @@
   min-width: 54px;
   height: 54px;
   border-radius: 50%;
-  background-color: #abd1c6;
+  background-color: var(--color-light-green);
 
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
 }
 
 .avatar__white {
-  background-color: #fffffe;
+  background-color: var(--color-white);
 }
 
 .avatar__big {

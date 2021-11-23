@@ -1,8 +1,8 @@
 .chat-input {
   width: 100%;
 
-  background: #fffffe;
-  border: 1px solid #001e1d;
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
   border-radius: 10px;
   padding: 6px 8px;
 

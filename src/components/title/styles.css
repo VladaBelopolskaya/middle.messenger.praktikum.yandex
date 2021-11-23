@@ -9,7 +9,7 @@
 }
 
 .title__white {
-  color: #fffffe;
+  color: var(--color-white);
 }
 
 .title__align-left {

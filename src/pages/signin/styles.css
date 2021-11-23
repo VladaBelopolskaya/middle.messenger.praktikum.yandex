@@ -9,7 +9,7 @@
 .signin_error {
   font-size: 18px;
   line-height: 18px;
-  color: #e16162;
+  color: var(--color-red);
 
   padding-left: 37px;
   background-image: url("../../icons/errorRed.svg");

@@ -11,11 +11,11 @@
 .chat_side__left {
   width: 320px;
   min-width: 320px;
-  border-right: 1px solid #001e1d;
-  background-color: #004643;
+  border-right: 1px solid var(--color-black);
+  background-color: var(--color-dark-green);
 }
 
 .chat_side__right {
-  background-color: #fffffe;
+  background-color: var(--color-white);
   flex-grow: 1;
 }

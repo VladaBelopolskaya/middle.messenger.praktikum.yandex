@@ -1,6 +1,6 @@
 .info_wrapper {
-  border-bottom: 1px solid #001e1d;
-  background-color: #fffffe;
+  border-bottom: 1px solid var(--color-black);
+  background-color: var(--color-white);
 
   display: flex;
   flex-wrap: nowrap;
@@ -11,7 +11,7 @@
 }
 
 .info_wrapper__yellow {
-  background-color: #f9bc60;
+  background-color: var(--color-yellow);
 }
 
 .info {
@@ -50,7 +50,7 @@
 .info_unread-count {
   width: 20px;
   height: 20px;
-  background-color: #f9bc60;
+  background-color: var(--color-yellow);
   text-align: center;
   border-radius: 50%;
 

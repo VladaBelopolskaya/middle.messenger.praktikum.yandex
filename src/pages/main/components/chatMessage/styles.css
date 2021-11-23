@@ -1,5 +1,5 @@
 .message {
-  border: 1px solid #001e1d;
+  border: 1px solid var(--color-black);
   border-radius: 10px;
   padding: 10px;
   align-self: flex-start;
@@ -11,11 +11,11 @@
 }
 
 .message__gray {
-  background-color: #e8e4e6;
+  background-color: var(--color-gray);
 }
 
 .message__green {
-  background-color: #abd1c6;
+  background-color: var(--color-light-green);
 }
 
 .message_info {

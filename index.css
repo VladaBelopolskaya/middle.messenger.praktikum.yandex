@@ -1,0 +1,63 @@
+:root {
+  --color-white: #fffffe;
+  --color-black: #001e1d;
+  --color-dark-green: #004643;
+  --color-light-green: #abd1c6;
+  --color-yellow: #f9bc60;
+  --color-red: #e16162;
+  --color-gray: #e8e4e6;
+}
+
+body {
+  background-color: var(--color-dark-green);
+
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-black);
+}
+
+button,
+p {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-black);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+div,
+button,
+a,
+input {
+  box-sizing: border-box;
+}
+
+p,
+span {
+  padding: 0;
+  margin: 0;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+a:visited {
+  text-decoration: none;
+  decoration: none;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

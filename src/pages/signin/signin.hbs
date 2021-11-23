@@ -1,0 +1,25 @@
+{{#> entry}}
+{{#*inline "content"}}
+
+{{#> card}}
+{{#*inline "content"}}
+
+<form class="{{styles.signin_form}}">
+    <div>
+        {{> title text="Hello!" marginBottom=true}}
+        {{> input label="Login" type="email" inputName="login" errorText="Error"}}
+        {{> input label="Password" type="password" inputName="password" errorText="Error"}}
+        <p class="{{styles.signin_error}}">Wrong login or password</p>
+    </div>
+
+    <div>
+        {{> button id="signin" text="Let’s go chatting" yellow=true marginBottom=true}}
+        {{> buttonLink href="/registration" text="Create an account" green=true}}
+    </div>
+</form>
+
+{{/inline}}
+{{/card}}
+
+{{/inline}}
+{{/entry}}

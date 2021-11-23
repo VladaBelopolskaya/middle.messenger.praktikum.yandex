@@ -1,0 +1,17 @@
+.signin_text {
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+
+  color: var(--color-black);
+
+  margin-top: 30px;
+}
+
+.signin_link {
+  text-decoration: underline;
+}
+
+.signin_link:hover {
+  color: var(--color-light-green);
+}

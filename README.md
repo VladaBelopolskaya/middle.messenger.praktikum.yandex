@@ -13,4 +13,4 @@
 - `npm i` — install dependences
 - `npm run start` — run the project with a Parsel
 - `npm run build` — build the project with a Parsel
-- `node ./server.js` - run the project with a NodeJS (use after `npm run build`)
+- `npm run server` - run the project with a NodeJS (use after `npm run build`)

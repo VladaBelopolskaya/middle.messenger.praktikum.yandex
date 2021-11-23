@@ -1,0 +1,42 @@
+.button {
+  width: 280px;
+  text-align: center;
+
+  padding: 9px 0;
+
+  border: 2px solid var(--color-black);
+  border-radius: 10px;
+
+  font-size: 18px;
+  line-height: 18px;
+
+  margin: 0 auto;
+  display: block;
+}
+
+.button__small {
+  padding: 8px;
+  width: 74px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.button__yellow {
+  background-color: var(--color-yellow);
+}
+
+.button__green {
+  background-color: var(--color-light-green);
+}
+
+.button__red {
+  background-color: var(--color-red);
+}
+
+.button__margin-bottom {
+  margin-bottom: 20px;
+}
+
+.button__margin-top {
+  margin-top: 20px;
+}

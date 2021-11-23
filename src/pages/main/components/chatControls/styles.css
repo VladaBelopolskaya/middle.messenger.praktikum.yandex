@@ -1,0 +1,16 @@
+.chat-controls {
+  background-color: var(--color-dark-green);
+  border-bottom: 1px solid var(--color-black);
+  padding: 8px 14px 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: auto;
+  height: 50px;
+  min-height: 50px;
+}
+
+.chat-controls_settings {
+  width: 25px;
+  height: 25px;
+}

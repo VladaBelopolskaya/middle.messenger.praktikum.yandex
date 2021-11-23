@@ -1,0 +1,40 @@
+.buttonLink {
+  display: block;
+  width: 280px;
+  text-align: center;
+
+  padding: 9px 0;
+
+  border: 2px solid var(--color-black);
+  border-radius: 10px;
+
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.buttonLink__small {
+  padding: 8px;
+  width: 74px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.buttonLink__yellow {
+  background-color: var(--color-yellow);
+}
+
+.buttonLink__green {
+  background-color: var(--color-light-green);
+}
+
+.buttonLink__red {
+  background-color: var(--color-red);
+}
+
+.buttonLink__margin-bottom {
+  margin-bottom: 20px;
+}
+
+.buttonLink__margin-top {
+  margin-top: 20px;
+}

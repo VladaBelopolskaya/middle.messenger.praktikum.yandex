@@ -1,0 +1,39 @@
+.avatar {
+  position: relative;
+
+  width: 54px;
+  min-width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--color-light-green);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar__small {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+}
+
+.avatar__white {
+  background-color: var(--color-white);
+}
+
+.avatar__big {
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 13px;
+}
+
+.avatar_edit-button {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 5px;
+  right: 5px;
+}

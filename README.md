@@ -1,6 +1,6 @@
 # Messenger
 
-## PR Sprint 1:
+## PR Sprint 1: https://github.com/VladaBelopolskaya/middle.messenger.praktikum.yandex/pull/2
 
 ## Netlify: https://thirsty-spence-1b0205.netlify.app
 

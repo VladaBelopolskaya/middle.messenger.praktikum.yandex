@@ -1,4 +1,4 @@
-function isEmpty(value) {
+export const isEmpty = (value: any) => {
   if (!value) {
     return true;
   }
@@ -16,6 +16,6 @@ function isEmpty(value) {
   }
 
   return false;
-}
+};
 
 export default isEmpty;

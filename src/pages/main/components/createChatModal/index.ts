@@ -1,1 +1,1 @@
-import "./createChatModal";
+import './createChatModal';

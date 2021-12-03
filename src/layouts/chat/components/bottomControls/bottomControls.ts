@@ -1,12 +1,12 @@
-import Handlebars from "handlebars/dist/handlebars.runtime";
-import template from "./bottomControls.hbs";
-import styles from "./styles.css";
+import Handlebars from 'handlebars/dist/handlebars.runtime';
+import template from './bottomControls.hbs';
+import styles from './styles.css';
 
-import { getBottomControlsIcon } from "../../../../utils/images";
+import { getBottomControlsIcon } from '../../../../utils/images';
 
-Handlebars.registerPartial("bottomControls", (context) => {
+Handlebars.registerPartial('bottomControls', (context) => {
   const { chatsIcon, profileSettingsIcon } = getBottomControlsIcon(
-    context.isProfileOpened
+    context.isProfileOpened,
   );
 
   return template({

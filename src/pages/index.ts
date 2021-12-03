@@ -1,4 +1,4 @@
-import "./signin";
-import "./registration";
-import "./main";
-import "./error";
+import './signin';
+import './registration';
+import './main';
+import './error';

@@ -1,21 +1,21 @@
-import Handlebars from "handlebars/dist/handlebars.runtime";
-import template from "./main.hbs";
-import styles from "./styles.css";
+import Handlebars from 'handlebars/dist/handlebars.runtime';
+import template from './main.hbs';
+import styles from './styles.css';
 
-import "./components";
-import "../../components";
-import chatPreviewsMocks from "../../mocks/chatPreviews";
-import messagesMocks from "../../mocks/messages";
+import './components';
+import '../../components';
+import chatPreviewsMocks from '../../mocks/chatPreviews';
+import messagesMocks from '../../mocks/messages';
 import {
   isProfileOpened,
   getActiveChatId,
   isProfileEditing,
   isChatSettingsOpened,
   isCreateChatOpened,
-} from "../../utils/url";
+} from '../../utils/url';
 
-Handlebars.registerPartial("main", (context) => {
-  return template({
+Handlebars.registerPartial('main', (context) =>
+  template({
     ...context,
     styles,
     previews: chatPreviewsMocks,
@@ -27,5 +27,5 @@ Handlebars.registerPartial("main", (context) => {
     isChatSettingsOpened: isChatSettingsOpened(),
     activeChatId: getActiveChatId(),
     isCreateChatOpened: isCreateChatOpened(),
-  });
-});
+  })
+);

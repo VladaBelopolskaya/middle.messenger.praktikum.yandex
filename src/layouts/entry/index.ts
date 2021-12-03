@@ -1,1 +1,1 @@
-import "./entry";
+import './entry';

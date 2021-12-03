@@ -18,25 +18,27 @@ const baseRange: TBaseRange = (start, end, step, isRight) => {
   let index = -1;
   let length = Math.max(Math.ceil((end - start) / step), 0);
   const result = new Array(length);
+  let currentItem = start;
 
   while (length--) {
-    result[isRight ? length : ++index] = start;
-    start += step;
+    result[isRight ? length : ++index] = currentItem;
+    currentItem += step;
   }
 
   return result;
 };
 
-const range: TRange = (start = 0, end, step, isRight = false) => {
-  if (end === undefined) {
-    end = start;
-    start = 0;
+export const range: TRange = (start, end, step, isRight = false) => {
+  let newEnd = end;
+  let newStart = start;
+  if (newEnd === undefined) {
+    newEnd = start;
+    newStart = 0;
   }
 
-  step = step === undefined ? (start < end ? 1 : -1) : step;
-  return baseRange(start, end, step, isRight);
+  const newStep = step === undefined ? (newStart < newEnd ? 1 : -1) : step;
+  return baseRange(newStart, newEnd, newStep, isRight);
 };
 
-const rangeRight: TRightRange = (start, end, step) => {
-  return range(start, end, step, true);
-};
+export const rangeRight: TRightRange = (start, end, step) =>
+  range(start, end, step, true);

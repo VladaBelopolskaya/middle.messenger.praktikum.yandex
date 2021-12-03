@@ -1,3 +1,3 @@
-import "./chatPreview";
-import "./bottomControls";
-import "./topControls";
+import './chatPreview';
+import './bottomControls';
+import './topControls';

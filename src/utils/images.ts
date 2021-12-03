@@ -1,9 +1,9 @@
-import defaultUserAvatarIcon from "../icons/defaultUserAvatar.svg";
-import defaultMultipleUsersAvatarIcon from "../icons/defaultMultipleUsersAvatar.svg";
-import chatsIcon from "../icons/chats.svg";
-import profileSettingsIcon from "../icons/profileSettings.svg";
-import chatsYellowIcon from "../icons/chatsYellow.svg";
-import profileSettingsYellowIcon from "../icons/profileSettingsYellow.svg";
+import defaultUserAvatarIcon from '../icons/defaultUserAvatar.svg';
+import defaultMultipleUsersAvatarIcon from '../icons/defaultMultipleUsersAvatar.svg';
+import chatsIcon from '../icons/chats.svg';
+import profileSettingsIcon from '../icons/profileSettings.svg';
+import chatsYellowIcon from '../icons/chatsYellow.svg';
+import profileSettingsYellowIcon from '../icons/profileSettingsYellow.svg';
 
 type AvatarSizeProps = {
   isMultiple?: boolean;
@@ -11,11 +11,9 @@ type AvatarSizeProps = {
   big?: boolean;
 };
 
-export const getAvatarImage = (isMultiple?: boolean) => {
+export const getAvatarImage = (isMultiple?: boolean) =>
   // TODO: implement condition if another image exist
-  return isMultiple ? defaultMultipleUsersAvatarIcon : defaultUserAvatarIcon;
-};
-
+  (isMultiple ? defaultMultipleUsersAvatarIcon : defaultUserAvatarIcon);
 export const getAvatarSize = ({ isMultiple, small, big }: AvatarSizeProps) => {
   let size = isMultiple ? 30 : 20;
   size = small ? size / 1.5 : size;

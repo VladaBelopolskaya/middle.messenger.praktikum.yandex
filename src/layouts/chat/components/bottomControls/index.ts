@@ -1,1 +1,1 @@
-import "./bottomControls";
+import './bottomControls';

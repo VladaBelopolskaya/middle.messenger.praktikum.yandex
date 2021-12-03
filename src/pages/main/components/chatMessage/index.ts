@@ -1,1 +1,1 @@
-import "./chatMessage";
+import './chatMessage';

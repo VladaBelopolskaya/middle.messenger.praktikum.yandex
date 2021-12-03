@@ -1,4 +1,4 @@
-export const isEmpty = (value: any) => {
+const isEmpty = (value: any) => {
   if (!value) {
     return true;
   }
@@ -7,7 +7,7 @@ export const isEmpty = (value: any) => {
     return true;
   }
 
-  if (typeof value === "boolean" || typeof value === "number") {
+  if (typeof value === 'boolean' || typeof value === 'number') {
     return true;
   }
 

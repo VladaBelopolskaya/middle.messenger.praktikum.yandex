@@ -1,10 +1,12 @@
 type TLast = <T>(list: T[]) => T | undefined;
 
-export const last: TLast = (list) => {
+const last: TLast = (list) => {
   // if (!Array.isArray(list)) {
   //   return undefined;
   // }
 
-  const length = list.length;
+  const { length } = list;
   return length ? list[length - 1] : undefined;
 };
+
+export default last;

@@ -1,139 +1,89 @@
-import './layouts';
-import './components';
-import './pages';
-import template from './index.hbs';
+import Signin from './pages/signin';
+import Entry from './layouts/entry';
+import Card from './components/card';
 
-import { PATH_NAMES, CHAT_PATH_NAMES, getMainPath } from './utils/url';
+import { PATH_NAMES, getMainPath } from './utils/url';
+import Registration from './pages/registration';
+import ErrorStub from './pages/errorStub';
+import Chat from './layouts/chat';
+import Main from './pages/main';
+import chatPreviews from './mocks/chatPreviews';
+import messages from './mocks/messages';
 
-const setHandlerForSigninPage = () => {
-  const signinButton: HTMLElement | null = document.querySelector('#signin');
+const renderSignin = () => {
+  const card = new Card({
+    content: new Signin({}),
+  });
 
-  if (signinButton) {
-    signinButton.onclick = () => {
-      window.location.href = PATH_NAMES.CHAT;
-    };
-  }
+  const entry = new Entry({
+    content: card,
+  });
+
+  return entry;
 };
 
-const setHandlerForRegistrationPage = () => {
-  const createButton: HTMLElement | null =
-    document.querySelector('#createAccount');
+const renderRegistration = () => {
+  const card = new Card({
+    content: new Registration({}),
+  });
 
-  if (createButton) {
-    createButton.onclick = () => {
-      window.location.href = PATH_NAMES.CHAT;
-    };
-  }
+  const entry = new Entry({
+    content: card,
+  });
+
+  return entry;
 };
 
-const setHandlerForChatPage = () => {
-  const chatPreviewArray: NodeListOf<HTMLElement> | null =
-    document.querySelectorAll('#chatPreview');
-  const changeProfileButton: HTMLElement | null =
-    document.querySelector('#changeProfile');
-  const saveProfileButton: HTMLElement | null =
-    document.querySelector('#saveProfile');
-  const deleteChatButton: HTMLElement | null =
-    document.querySelector('#deleteChat');
-  const sendMessageButton: HTMLElement | null =
-    document.querySelector('#sendMessage');
-  const modalWrapper: HTMLElement | null =
-    document.querySelector('#modalWrapper');
-  const addUserButton: HTMLElement | null = document.querySelector('#addUser');
-  const removeMemberButton: HTMLElement | null =
-    document.querySelector('#removeMember');
-  const createChatButton: HTMLElement | null =
-    document.querySelector('#createChat');
+const renderError = (error: 404 | 500) => {
+  const entry = new Entry({
+    content: new ErrorStub({ error }),
+  });
+  return entry;
+};
 
-  if (chatPreviewArray && chatPreviewArray.length > 0) {
-    chatPreviewArray.forEach((element, idx) => {
-      element.onclick = () => {
-        window.location.href = `${PATH_NAMES.CHAT}/${idx + 1}`;
-      };
-    });
-  }
+const renderChat = () => {
+  const chat = new Chat({
+    rightSide: new Main({ messages }),
+    previews: chatPreviews,
+  });
 
-  if (changeProfileButton) {
-    changeProfileButton.onclick = () => {
-      window.location.href = CHAT_PATH_NAMES.EDIT_PROFILE;
-    };
-  }
-
-  if (saveProfileButton) {
-    saveProfileButton.onclick = () => {
-      window.location.href = CHAT_PATH_NAMES.PROFILE;
-    };
-  }
-
-  if (deleteChatButton) {
-    deleteChatButton.onclick = () => {
-      window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
-    };
-  }
-
-  if (sendMessageButton) {
-    sendMessageButton.onclick = () => {
-      window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
-    };
-  }
-
-  if (modalWrapper) {
-    modalWrapper.addEventListener('click', (e) => {
-      if (e.target === modalWrapper) {
-        window.location.href = PATH_NAMES.CHAT;
-      }
-    });
-  }
-
-  if (addUserButton) {
-    addUserButton.onclick = () => {
-      window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
-    };
-  }
-
-  if (removeMemberButton) {
-    removeMemberButton.onclick = () => {
-      window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
-    };
-  }
-
-  if (createChatButton) {
-    createChatButton.onclick = () => {
-      window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
-    };
-  }
+  return chat;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainContainer: HTMLElement | null = document.querySelector('#app');
   const mainPath = getMainPath();
+  let currentPage;
 
   if (mainContainer) {
     switch (mainPath) {
       case PATH_NAMES.REGISTRATION:
-        mainContainer.innerHTML = template({ registrationPage: true });
-        setHandlerForRegistrationPage();
+        currentPage = renderRegistration();
+        // setHandlerForRegistrationPage();
         break;
       case PATH_NAMES.CHAT:
-        mainContainer.innerHTML = template({
-          mainPage: true,
-        });
-        setHandlerForChatPage();
+        currentPage = renderChat();
+        // setHandlerForChatPage();
         break;
       case '/':
       case PATH_NAMES.SIGNIN:
-        mainContainer.innerHTML = template({ signinPage: true });
-        setHandlerForSigninPage();
+        currentPage = renderSignin();
+        // setHandlerForSigninPage();
         break;
       case PATH_NAMES.SERVICE_UNAVAILABLE:
-        mainContainer.innerHTML = template({
-          error: 500,
-        });
+        currentPage = renderError(500);
         break;
       default:
-        mainContainer.innerHTML = template({
-          error: 404,
-        });
+        currentPage = renderError(404);
     }
+
+    mainContainer.appendChild(currentPage.getContent());
   }
 });
+
+// Через секунду контент изменится сам, достаточно обновить пропсы
+//   setTimeout(() => {
+//     title.setProps({
+//       text: 'Click me, please',
+//     });
+//   }, 1000);

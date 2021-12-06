@@ -1,22 +1,21 @@
 <div class="{{styles.profile}}">
-    {{> avatar big=true}}
-    {{> title text="My name"}}
+    {{{avatar}}}
+    {{{userName}}}
     <form class="{{styles.profile_form}}">
-        {{> input label="Email" type="email" inputName="email" value="test@ya.ru" }}
-        {{> input label="Login" type="text" inputName="login" value="Mylogin" }}
-        {{> input label="First Name" type="text" inputName="first_name" value="MyName" }}
-        {{> input label="Second Name" type="text" inputName="second_name" value="MySecondName" }}
-        {{> input label="Phone" type="text" inputName="phone" value="+7999999999" }}
-        {{#if isProfileEditing}}
-        {{> input label="Password" type="password" inputName="newPassword" value="somepassword" }}
+        {{{emailInput}}}
+        {{{loginInput}}}
+        {{{firstNameInput}}}
+        {{{secondNameInput}}}
+        {{{phoneInput}}}
+        {{#if isEditing}}
+        {{{passwordInput}}}
         {{/if}}
     </form>
 
-    {{#if isProfileEditing}}
-    {{> button id="saveProfile" text="Save" yellow=true marginTop=true}}
+    {{#if isEditing}}
+    {{{buttonSave}}}
     {{else}}
-    {{> buttonLink href="/chat/editprofile" text="Change profile" yellow=true marginTop=true marginBottom=true}}
-    {{> buttonLink href="/signin" text="Logout" red=true}}
+    {{{buttonChange}}}
+    {{{buttonLogout}}}
     {{/if}}
-
 </div>

@@ -6,7 +6,6 @@
 .chat_left-side {
   display: flex;
   flex-direction: column;
-
   width: 320px;
   min-width: 320px;
   border-right: 1px solid var(--color-black);

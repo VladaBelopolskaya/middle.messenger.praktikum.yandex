@@ -22,6 +22,17 @@
     "rules": {
         "no-nested-ternary": "off",
         "no-plusplus": "off",
-        "no-param-reassign": ["error", { "props": false }]
+        "no-param-reassign": ["error", { "props": false }],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+              "selector": "default",
+              "format": [
+                "camelCase",
+                "UPPER_CASE",
+                "PascalCase"
+              ]
+            }
+          ]
     }
 }

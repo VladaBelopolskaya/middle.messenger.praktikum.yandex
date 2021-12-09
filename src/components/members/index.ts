@@ -4,25 +4,38 @@ import styles from './styles.css';
 import removeIcon from '../../icons/remove.svg';
 import ChatInput from '../chatInput';
 import Button from '../button';
-import UserInfo from '../userInfo';
 import Block from '../../services/Block';
+import { PATH_NAMES } from '../../utils/url';
+import MemberItem from './components/memberItem';
+import { FORM_FIELDS } from '../../utils/inputValidation';
 
-type RestProps = {};
+type RestProps = {
+  members: { name: string }[];
+};
 
 class Members extends Block<RestProps> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
     this.children.chatInput = new ChatInput({
-      user: true,
       placeholder: 'Write a user name',
+      inputName: FORM_FIELDS.USER_NAME,
     });
     this.children.addButton = new Button({
-      id: 'addUser',
       text: 'Add',
       green: true,
       small: true,
+      browserEvents: [
+        {
+          events: ['click'],
+          func() {
+            window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
+          },
+        },
+      ],
     });
-    this.children.userInfo = new UserInfo({ name: 'User name' });
+    this.children.members = this.restProps.members.map(
+      (member) => new MemberItem({ ...member })
+    );
   }
 
   render() {

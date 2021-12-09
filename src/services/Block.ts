@@ -1,8 +1,17 @@
 import { TemplateDelegate } from 'handlebars';
 import { v4 as uuidv4 } from 'uuid';
+
 import EventBus from './EventBus';
 
-class Block<RestProps = any> {
+export type BrowserEvents = { events: string[]; func: (event: any) => void }[];
+
+// TODO
+const isBrowserEvents = (prop: {
+  key: string;
+  value: unknown;
+}): prop is { key: string; value: BrowserEvents } =>
+  prop.key === 'browserEvents';
+class Block<RestProps = any, Props = RestProps> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -14,21 +23,23 @@ class Block<RestProps = any> {
 
   public restProps: RestProps;
 
+  private browserEvents: BrowserEvents = [];
+
   public children: { [key: string]: Block | Block[] } = {};
 
   public elementId: string;
 
-  private element: ChildNode;
+  private element: HTMLElement;
 
-  public setInitialChildren() {}
-
-  constructor(props = {}) {
+  constructor(props: Props) {
     this.eventBus = new EventBus();
-    const { children, restProps } = Block.separateChildrenAndRestProps(props);
+    const { children, restProps, browserEvents } = Block.separateProps(props);
 
     Object.entries(children).forEach(([key, value]) => {
       this.children[key] = value;
     });
+
+    this.browserEvents = [...this.browserEvents, ...browserEvents];
 
     this.restProps = this.makePropsProxy(restProps);
     this.elementId = uuidv4();
@@ -38,10 +49,14 @@ class Block<RestProps = any> {
   }
 
   // добавить поддержку детей в массиве
-  static separateChildrenAndRestProps(props: any) {
+  static separateProps(props: any) {
     const children: { [key: string]: any } = {};
     const restProps: { [key: string]: any } = {};
+    let browserEvents: BrowserEvents = [];
     Object.entries(props).forEach(([key, value]) => {
+      if (isBrowserEvents({ key, value })) {
+        browserEvents = value;
+      }
       if (value instanceof Block) {
         children[key] = value;
       } else {
@@ -49,7 +64,7 @@ class Block<RestProps = any> {
       }
     });
 
-    return { children, restProps };
+    return { children, restProps, browserEvents };
   }
 
   registerEvents(eventBus: EventBus) {
@@ -65,9 +80,8 @@ class Block<RestProps = any> {
         if (target[prop] !== value) {
           target[prop] = value;
           this.eventBus.emit(Block.EVENTS.FLOW_CDU);
-          return true;
         }
-        return false;
+        return true;
       },
     });
   }
@@ -132,10 +146,26 @@ class Block<RestProps = any> {
     }
   }
 
+  private addEvents() {
+    if (this.browserEvents.length && this.element) {
+      const elementForListener = this.element;
+      this.browserEvents.forEach((item) => {
+        item.events.forEach((event) => {
+          elementForListener.addEventListener(event, item.func.bind(this));
+        });
+      });
+    }
+  }
+
   private ownRender() {
-    const block = this.render();
-    if (block.firstChild) {
-      this.element = block.firstChild;
+    const fragmentContent = this.render();
+    const newElement = fragmentContent.firstChild;
+    if (newElement) {
+      // проверить есть ли у this.element родитель, потому что если его не окажется по какой-то причине, то ошибка упадет
+      this.element?.replaceWith(newElement);
+      this.element = newElement;
+      this.addEvents();
+      this.addEventsToTemplateComponents();
     }
   }
 
@@ -143,29 +173,29 @@ class Block<RestProps = any> {
     return this.element;
   }
 
-  public setProps = (nextProps) => {
-    if (!nextProps) {
-      return;
-    }
-
-    Object.assign(this.props, nextProps);
+  public setProps = (props: RestProps) => {
+    Object.assign(this.restProps, { ...this.restProps, ...props });
   };
 
-  // public setInitialChildren() {}
+  // eslint-disable-next-line
+  public setInitialChildren() {}
 
-  // Может переопределять пользователь, необязательно трогать
+  // eslint-disable-next-line
   public render(): DocumentFragment {
     const fragment = document.createElement('template');
     return fragment.content;
   }
 
-  // Может переопределять пользователь, необязательно трогать
+  // eslint-disable-next-line
   public componentDidUpdate(oldProps, newProps) {
     return true;
   }
 
-  // Может переопределять пользователь, необязательно трогать
+  // eslint-disable-next-line
   public componentDidMount(oldProps) {}
+
+  // eslint-disable-next-line class-methods-use-this
+  public addEventsToTemplateComponents() {}
 }
 
 export default Block;

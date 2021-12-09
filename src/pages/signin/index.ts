@@ -6,8 +6,12 @@ import Title from '../../components/title';
 import Button from '../../components/button';
 import ButtonLink from '../../components/buttonLink';
 import Input from '../../components/input';
+import { FORM_FIELDS, isFormValid } from '../../utils/inputValidation';
+import { PATH_NAMES } from '../../utils/url';
 
-type RestProps = {};
+type RestProps = {
+  hasError?: boolean;
+};
 
 class Signin extends Block<RestProps> {
   setInitialChildren() {
@@ -15,20 +19,20 @@ class Signin extends Block<RestProps> {
     this.children.title = new Title({ text: 'Hello', marginBottom: true });
     this.children.loginInput = new Input({
       label: 'Login',
-      type: 'email',
-      inputName: 'login',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.LOGIN,
+      enableInputValidation: true,
     });
     this.children.passwordInput = new Input({
       label: 'Password',
       type: 'password',
-      inputName: 'password',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.PASSWORD,
+      enableInputValidation: true,
     });
     this.children.button = new Button({
       text: 'Let’s go chatting',
       yellow: true,
       marginBottom: true,
+      type: 'submit',
     });
     this.children.buttonLink = new ButtonLink({
       href: '/registration',
@@ -37,8 +41,23 @@ class Signin extends Block<RestProps> {
     });
   }
 
+  addEventsToTemplateComponents() {
+    const form = this.getContent();
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (isFormValid(form as HTMLFormElement)) {
+        window.location.href = PATH_NAMES.CHAT;
+      } else {
+        this.setProps({ hasError: true });
+      }
+    });
+  }
+
   render() {
-    return this.compile(template, { styles });
+    return this.compile(template, {
+      styles,
+      hasError: this.restProps.hasError,
+    });
   }
 }
 

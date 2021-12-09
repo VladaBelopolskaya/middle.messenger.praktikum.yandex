@@ -6,6 +6,7 @@ import Avatar from '../../../../components/avatar';
 import Title from '../../../../components/title';
 import Members from '../../../../components/members';
 import Button from '../../../../components/button';
+import { PATH_NAMES } from '../../../../utils/url';
 
 type RestProps = {
   isMultiple?: boolean;
@@ -15,17 +16,24 @@ type RestProps = {
 class ChatSettings extends Block<RestProps> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
-    this.children.avatar = new Avatar({ big: true });
+    this.children.avatar = new Avatar({ big: true, canEditAvatar: true });
     this.children.title = new Title({
       marginBottom: true,
       text: this.restProps.chatName,
     });
-    this.children.members = new Members({});
+    this.children.members = new Members({ members: [{ name: 'Some name' }] });
     this.children.deleteButton = new Button({
-      id: 'deleteChat',
       text: 'Delete chat',
       red: true,
       marginTop: true,
+      browserEvents: [
+        {
+          events: ['click'],
+          func() {
+            window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
+          },
+        },
+      ],
     });
   }
 

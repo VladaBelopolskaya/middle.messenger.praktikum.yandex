@@ -59,16 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
     switch (mainPath) {
       case PATH_NAMES.REGISTRATION:
         currentPage = renderRegistration();
-        // setHandlerForRegistrationPage();
         break;
       case PATH_NAMES.CHAT:
         currentPage = renderChat();
-        // setHandlerForChatPage();
         break;
       case '/':
       case PATH_NAMES.SIGNIN:
         currentPage = renderSignin();
-        // setHandlerForSigninPage();
         break;
       case PATH_NAMES.SERVICE_UNAVAILABLE:
         currentPage = renderError(500);
@@ -80,10 +77,3 @@ document.addEventListener('DOMContentLoaded', () => {
     mainContainer.appendChild(currentPage.getContent());
   }
 });
-
-// Через секунду контент изменится сам, достаточно обновить пропсы
-//   setTimeout(() => {
-//     title.setProps({
-//       text: 'Click me, please',
-//     });
-//   }, 1000);

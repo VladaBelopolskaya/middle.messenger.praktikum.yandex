@@ -7,6 +7,8 @@ import ButtonLink from '../../../../components/buttonLink';
 import Input from '../../../../components/input';
 import Title from '../../../../components/title';
 import Block from '../../../../services/Block';
+import { FORM_FIELDS, isFormValid } from '../../../../utils/inputValidation';
+import { CHAT_PATH_NAMES } from '../../../../utils/url';
 
 type RestProps = {
   isEditingDisabled?: boolean;
@@ -25,49 +27,52 @@ class ProfileSettings extends Block<RestProps> {
     this.children.emailInput = new Input({
       label: 'Email',
       type: 'email',
-      inputName: 'email',
+      inputName: FORM_FIELDS.EMAIL,
       value: 'test@ya.ru',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.loginInput = new Input({
       label: 'Login',
-      type: 'text',
-      inputName: 'login',
+      inputName: FORM_FIELDS.LOGIN,
       value: 'Mylogin',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.firstNameInput = new Input({
       label: 'First Name',
-      type: 'text',
-      inputName: 'first_name',
+      inputName: FORM_FIELDS.FIRST_NAME,
       value: 'MyName',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.secondNameInput = new Input({
       label: 'Second Name',
-      type: 'text',
-      inputName: 'second_name',
+      inputName: FORM_FIELDS.SECOND_NAME,
       value: 'MySecondName',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.phoneInput = new Input({
       label: 'Phone',
-      type: 'text',
-      inputName: 'phone',
+      inputName: FORM_FIELDS.PHONE,
       value: '+7999999999',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.passwordInput = new Input({
       label: 'Password',
       type: 'password',
-      inputName: 'password',
+      inputName: FORM_FIELDS.PASSWORD,
       value: 'somepassword',
       isDisabled: this.restProps.isEditingDisabled,
+      enableInputValidation: true,
     });
     this.children.buttonSave = new Button({
       text: 'Save',
       yellow: true,
       marginTop: true,
+      type: 'submit',
     });
     this.children.buttonChange = new ButtonLink({
       href: '/chat/editprofile',
@@ -80,6 +85,17 @@ class ProfileSettings extends Block<RestProps> {
       href: '/signin',
       text: 'Logout',
       red: true,
+    });
+  }
+
+  addEventsToTemplateComponents() {
+    const form = this.getContent();
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (isFormValid(form as HTMLFormElement)) {
+        window.location.href = CHAT_PATH_NAMES.PROFILE;
+      }
     });
   }
 

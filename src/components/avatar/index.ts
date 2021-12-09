@@ -4,6 +4,7 @@ import Block from '../../services/Block';
 
 import editIcon from '../../icons/edit.svg';
 import { getAvatarImage, getAvatarSize } from '../../utils/images';
+import { PATH_NAMES } from '../../utils/url';
 
 type RestProps = {
   small?: boolean;
@@ -13,6 +14,15 @@ type RestProps = {
   multipleChat?: boolean;
 };
 class Avatar extends Block<RestProps> {
+  addEventsToTemplateComponents() {
+    const editButton = this.getContent().querySelector('button');
+    if (editButton) {
+      editButton.addEventListener('click', () => {
+        window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
+      });
+    }
+  }
+
   render() {
     const alt = 'Default avatar'; // TODO: implement Name avatar
 

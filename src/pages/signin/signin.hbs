@@ -1,9 +1,11 @@
-<form class="{{styles.signin_form}}">
+<form class="{{styles.signin_form}}" autocomplete="off">
     <div>
         {{{title}}}
         {{{loginInput}}}
         {{{passwordInput}}}
+        {{#if hasError}}
         <p class="{{styles.signin_error}}">Wrong login or password</p>
+        {{/if}}
     </div>
 
     <div>

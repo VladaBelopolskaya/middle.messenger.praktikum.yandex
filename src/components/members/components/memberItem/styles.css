@@ -1,0 +1,13 @@
+.member {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.member_remove {
+  width: 18px;
+  height: 18px;
+  margin: 3px;
+}

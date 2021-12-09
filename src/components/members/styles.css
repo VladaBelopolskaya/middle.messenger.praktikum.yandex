@@ -21,17 +21,3 @@
   max-height: 170px;
   overflow-y: scroll;
 }
-
-.members_item {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.members_item-remove {
-  width: 18px;
-  height: 18px;
-  margin: 3px;
-}

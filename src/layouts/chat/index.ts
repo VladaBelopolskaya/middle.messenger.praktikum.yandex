@@ -4,7 +4,7 @@ import styles from './styles.css';
 import Block from '../../services/Block';
 import TopControls from './components/topControls';
 import BottomControls from './components/bottomControls';
-import ChatPreview from './components/chatPreview';
+import ChatPreview, { PreviewData } from './components/chatPreview';
 import Modal from '../../components/modal';
 import CreateChat from './components/createChat';
 import {
@@ -14,17 +14,13 @@ import {
 } from '../../utils/url';
 
 type RestProps = {
-  previews: {
-    id: string;
-    name: string;
-    time: string;
-    message: string;
-    unreadCount: string;
-    multipleChat: boolean;
-    isActive: boolean;
-  }[];
+  previews: PreviewData[];
 };
-class Chat extends Block<RestProps> {
+
+type Props = {
+  rightSide: Block;
+} & RestProps;
+class Chat extends Block<RestProps, Props> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
     this.children.topControls = new TopControls({});

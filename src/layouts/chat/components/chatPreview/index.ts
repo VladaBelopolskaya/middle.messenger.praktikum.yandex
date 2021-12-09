@@ -3,21 +3,33 @@ import styles from './styles.css';
 
 import Block from '../../../../services/Block';
 import Avatar from '../../../../components/avatar';
+import { PATH_NAMES } from '../../../../utils/url';
 
-type RestProps = {
+export type PreviewData = {
   name: string;
   time: string;
   message: string;
   unreadCount: number;
   id: string;
-  activeChatId: string;
-  multipleChat?: boolean;
+  multipleChat: boolean;
+  isActive: boolean;
 };
+
+type RestProps = {
+  activeChatId?: string;
+} & PreviewData;
 class ChatPreview extends Block<RestProps> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
     this.children.avatar = new Avatar({
       multipleChat: this.restProps.multipleChat,
+    });
+  }
+
+  addEventsToTemplateComponents() {
+    const chatPreviewWrapper = this.getContent();
+    chatPreviewWrapper.addEventListener('click', () => {
+      window.location.href = `${PATH_NAMES.CHAT}/${this.restProps.id}`;
     });
   }
 

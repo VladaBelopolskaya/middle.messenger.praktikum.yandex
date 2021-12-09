@@ -38,5 +38,5 @@ export const getActiveChatId = () => {
   if (mainPath === PATH_NAMES.CHAT && !!pathParts[2]) {
     return pathParts[2];
   }
-  return false;
+  return undefined;
 };

@@ -1,14 +1,20 @@
 import template from './registration.hbs';
 import styles from './styles.css';
 
-import Block from '../../services/Block';
+import Block, { BrowserEvents } from '../../services/Block';
 import Title from '../../components/title';
 import Input from '../../components/input';
 import Button from '../../components/button';
+import { FORM_FIELDS, isFormValid } from '../../utils/inputValidation';
+import { PATH_NAMES } from '../../utils/url';
 
 type RestProps = {};
 
-class Registration extends Block<RestProps> {
+type Props = RestProps & {
+  browserEvents?: BrowserEvents;
+};
+
+class Registration extends Block<RestProps, Props> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
     this.children.title = new Title({
@@ -18,43 +24,52 @@ class Registration extends Block<RestProps> {
     this.children.emailInput = new Input({
       label: 'Email',
       type: 'email',
-      inputName: 'email',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.EMAIL,
+      enableInputValidation: true,
     });
     this.children.loginInput = new Input({
       label: 'Login',
-      type: 'text',
-      inputName: 'login',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.LOGIN,
+      enableInputValidation: true,
     });
     this.children.firstNameInput = new Input({
       label: 'First Name',
-      type: 'text',
-      inputName: 'first_name',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.FIRST_NAME,
+      enableInputValidation: true,
     });
     this.children.secondNameInput = new Input({
       label: 'Second Name',
-      type: 'text',
-      inputName: 'second_name',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.SECOND_NAME,
+      enableInputValidation: true,
     });
     this.children.phoneInput = new Input({
       label: 'Phone',
-      type: 'text',
-      inputName: 'phone',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.PHONE,
+      enableInputValidation: true,
     });
     this.children.passwordInput = new Input({
       label: 'Password',
       type: 'password',
-      inputName: 'password',
-      errorText: 'Error',
+      inputName: FORM_FIELDS.PASSWORD,
+      enableInputValidation: true,
     });
     this.children.button = new Button({
       text: 'Create',
       yellow: true,
       marginTop: true,
+      type: 'submit',
+    });
+  }
+
+  addEventsToTemplateComponents() {
+    const form = this.getContent();
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (isFormValid(form as HTMLFormElement)) {
+        window.location.href = PATH_NAMES.CHAT;
+      } else {
+        this.setProps({ hasError: true });
+      }
     });
   }
 

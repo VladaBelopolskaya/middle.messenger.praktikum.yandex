@@ -1,6 +1,6 @@
 import template from './button.hbs';
 import styles from './styles.css';
-import Block from '../../services/Block';
+import Block, { BrowserEvents } from '../../services/Block';
 
 type RestProps = {
   green?: boolean;
@@ -10,13 +10,21 @@ type RestProps = {
   marginBottom?: boolean;
   marginTop?: boolean;
   text: string;
-  type: 'button' | 'submit';
+  type?: 'submit';
 };
 
-class Button extends Block<RestProps> {
+type Props = RestProps & {
+  browserEvents?: BrowserEvents;
+};
+
+class Button extends Block<RestProps, Props> {
   render() {
-    const type = this.restProps.type || 'button';
-    return this.compile(template, { ...this.restProps, type, styles });
+    return this.compile(template, {
+      ...this.restProps,
+      type: this.restProps.type || 'button',
+      styles,
+      id: this.elementId,
+    });
   }
 }
 

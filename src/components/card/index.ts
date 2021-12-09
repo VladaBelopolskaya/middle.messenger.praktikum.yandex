@@ -5,7 +5,7 @@ import Block from '../../services/Block';
 
 type RestProps = {
   create?: boolean;
-  content: Block;
+  content: Block | Block[];
 };
 
 class Card extends Block<RestProps> {

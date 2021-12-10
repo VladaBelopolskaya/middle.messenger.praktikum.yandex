@@ -1,5 +1,5 @@
 .entry {
-  background-color: #004643;
+  background-color: var(--color-dark-green);
   display: flex;
   justify-content: center;
   align-items: center;

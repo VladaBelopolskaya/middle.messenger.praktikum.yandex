@@ -1,3 +1,10 @@
+.chat_wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  flex-grow: 1;
+}
+
 .chat_stub {
   margin: auto;
   font-size: 24px;
@@ -5,7 +12,7 @@
 }
 
 .chat_window {
-  background-color: #fffffe;
+  background-color: var(--color-white);
   overflow-y: scroll;
   padding: 12px;
 }

@@ -1,15 +1,11 @@
 .button {
   width: 280px;
   text-align: center;
-
   padding: 9px 0;
-
-  border: 2px solid #001e1d;
+  border: 2px solid var(--color-black);
   border-radius: 10px;
-
   font-size: 18px;
   line-height: 18px;
-
   margin: 0 auto;
   display: block;
 }
@@ -22,15 +18,15 @@
 }
 
 .button__yellow {
-  background-color: #f9bc60;
+  background-color: var(--color-yellow);
 }
 
 .button__green {
-  background-color: #abd1c6;
+  background-color: var(--color-light-green);
 }
 
 .button__red {
-  background-color: #e16162;
+  background-color: var(--color-red);
 }
 
 .button__margin-bottom {

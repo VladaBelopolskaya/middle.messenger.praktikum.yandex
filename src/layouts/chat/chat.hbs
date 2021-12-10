@@ -1,14 +1,15 @@
 <div class="{{styles.chat}}">
-  <div class="{{styles.chat_side}} {{styles.chat_side__left}}">
-    {{> topControls}}
+  <div class="{{styles.chat_left-side}}">
+    {{{topControls}}}
 
-    {{#each previews}}
-    {{>chatPreview activeChatId=../activeChatId}}
-    {{/each}}
+    {{{chatPreviews}}}
 
-    {{> bottomControls}}
+    {{{bottomControls}}}
   </div>
-  <div class="{{styles.chat_side}} {{styles.chat_side__right}}">
-    {{> rightSide}}
-  </div>
+
+  {{{rightSide}}}
+
+  {{#if isCreateChatOpened}}
+  {{{createChatModal}}}
+  {{/if}}
 </div>

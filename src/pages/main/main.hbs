@@ -1,34 +1,24 @@
-{{#> chat}}
-{{#*inline "rightSide"}}
+<div class="{{styles.chat_wrapper}}">
+    {{#if isChatSettingsOpened}}
+    {{{chatSettings}}}
+    {{/if}}
 
-{{#if isChatSettingsOpened}}
-{{>chatSettings chatName="Chat name" isMultiple=true}}
-{{/if}}
+    {{#if isProfileOpened}}
+    {{{profileSettings}}}
+    {{/if}}
 
-{{#if isProfileOpened}}
-{{>profileSettings}}
-{{/if}}
-
-{{#if isChatOpened}}
-{{#if isSomeChatActive}}
-{{> chatControls}}
-<div class="{{styles.chat_window}}">
-    <div class="{{styles.chat_messages}}">
-        {{> title text="June 18" marginBottom=true}}
-        {{#each messages}}
-        {{>chatMessage this}}
-        {{/each}}
+    {{#if isChatOpened}}
+    {{#if isSomeChatActive}}
+    {{{chatControls}}}
+    <div class="{{styles.chat_window}}">
+        <div class="{{styles.chat_messages}}">
+            {{{date}}}
+            {{{chatMessages}}}
+        </div>
     </div>
+    {{{messageControls}}}
+    {{else}}
+    <p class="{{styles.chat_stub}}">Select a chat!</p>
+    {{/if}}
+    {{/if}}
 </div>
-{{> messageControls}}
-{{else}}
-<p class="{{styles.chat_stub}}">Select a chat!</p>
-{{/if}}
-{{/if}}
-
-{{/inline}}
-{{/chat}}
-
-{{#if isCreateChatOpened}}
-{{>createChatModal}}
-{{/if}}

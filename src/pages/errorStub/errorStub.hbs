@@ -1,0 +1,13 @@
+<div class="{{styles.error}}">
+    <div class="{{styles.error_text-wrapper}}">
+        {{#if is404}}
+        {{{errorCode404}}}
+        {{{errorText404}}}
+        {{else}}
+        {{{errorCode500}}}
+        {{{errorText500}}}
+        {{/if}}
+    </div>
+
+    {{{buttonLink}}}
+</div>

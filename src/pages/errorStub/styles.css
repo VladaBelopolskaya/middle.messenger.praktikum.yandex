@@ -1,0 +1,20 @@
+.error {
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error_text-wrapper {
+  padding-left: 73px;
+  margin-bottom: 45px;
+  background-image: url('../../icons/error.svg');
+  background-size: 58px;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+.error_text-wrapper p:first-child {
+  margin-bottom: 10px;
+}

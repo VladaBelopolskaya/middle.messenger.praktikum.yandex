@@ -8,29 +8,24 @@
   font-weight: bold;
   font-size: 12px;
   line-height: 12px;
-
   margin-bottom: 4px;
 }
 
 .input {
   font-size: 14px;
   line-height: 14px;
-  padding: 0 0 2px 0;
+  padding: 0 0 2px;
   margin-bottom: 23px;
-
   border: none;
-  border-bottom: 2px solid #001e1d;
-
+  border-bottom: 2px solid var(--color-black);
   background-color: transparent;
 }
 
 .input_error {
   padding: 0;
-
   font-size: 10px;
   line-height: 10px;
-  color: #e16162;
-
+  color: var(--color-red);
   position: absolute;
   top: 44px;
 }

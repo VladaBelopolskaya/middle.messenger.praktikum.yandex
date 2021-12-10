@@ -2,12 +2,9 @@
   display: block;
   width: 280px;
   text-align: center;
-
   padding: 9px 0;
-
-  border: 2px solid #001e1d;
+  border: 2px solid var(--color-black);
   border-radius: 10px;
-
   font-size: 18px;
   line-height: 18px;
 }
@@ -20,15 +17,15 @@
 }
 
 .buttonLink__yellow {
-  background-color: #f9bc60;
+  background-color: var(--color-yellow);
 }
 
 .buttonLink__green {
-  background-color: #abd1c6;
+  background-color: var(--color-light-green);
 }
 
 .buttonLink__red {
-  background-color: #e16162;
+  background-color: var(--color-red);
 }
 
 .buttonLink__margin-bottom {

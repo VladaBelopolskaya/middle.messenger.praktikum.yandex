@@ -4,6 +4,7 @@
   "rules": {
     "string-quotes": "single",
     "alpha-value-notation": "number",
-    "color-function-notation": "legacy"
+    "color-function-notation": "legacy",
+    "selector-class-pattern": "[a-z]+(-[a-z]+)*(_[a-z]+(-[a-z]+)*)?(__[a-z]+(-[a-z]+)*)?"
   }
 }

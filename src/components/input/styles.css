@@ -14,7 +14,7 @@
 .input {
   font-size: 14px;
   line-height: 14px;
-  padding: 0 0 2px 0;
+  padding: 0 0 2px;
   margin-bottom: 23px;
   border: none;
   border-bottom: 2px solid var(--color-black);

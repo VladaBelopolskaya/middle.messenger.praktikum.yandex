@@ -1,15 +1,11 @@
 .button {
   width: 280px;
   text-align: center;
-
   padding: 9px 0;
-
   border: 2px solid var(--color-black);
   border-radius: 10px;
-
   font-size: 18px;
   line-height: 18px;
-
   margin: 0 auto;
   display: block;
 }

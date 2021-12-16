@@ -1,12 +1,10 @@
 .info_wrapper {
   border-bottom: 1px solid var(--color-black);
   background-color: var(--color-white);
-
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   padding: 8px;
-
   cursor: pointer;
 }
 
@@ -53,8 +51,6 @@
   background-color: var(--color-yellow);
   text-align: center;
   border-radius: 50%;
-
   font-size: 12px;
-  text-align: center;
   line-height: 20px;
 }

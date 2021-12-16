@@ -1,0 +1,23 @@
+.members_search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 428px;
+  margin: 0 auto;
+}
+
+.members_search button {
+  margin-left: 14px;
+}
+
+.members_title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.members_list {
+  width: 280px;
+  margin: 0 auto;
+  max-height: 170px;
+  overflow-y: scroll;
+}

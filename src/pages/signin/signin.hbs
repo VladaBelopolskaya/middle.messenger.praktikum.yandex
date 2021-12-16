@@ -1,25 +1,15 @@
-{{#> entry}}
-{{#*inline "content"}}
-
-{{#> card}}
-{{#*inline "content"}}
-
-<form class="{{styles.signin_form}}">
+<form class="{{styles.signin_form}}" autocomplete="off">
     <div>
-        {{> title text="Hello!" marginBottom=true}}
-        {{> input label="Login" type="email" inputName="login" errorText="Error"}}
-        {{> input label="Password" type="password" inputName="password" errorText="Error"}}
+        {{{title}}}
+        {{{loginInput}}}
+        {{{passwordInput}}}
+        {{#if hasError}}
         <p class="{{styles.signin_error}}">Wrong login or password</p>
+        {{/if}}
     </div>
 
     <div>
-        {{> button id="signin" text="Let’s go chatting" yellow=true marginBottom=true}}
-        {{> buttonLink href="/registration" text="Create an account" green=true}}
+        {{{button}}}
+        {{{buttonLink}}}
     </div>
 </form>
-
-{{/inline}}
-{{/card}}
-
-{{/inline}}
-{{/entry}}

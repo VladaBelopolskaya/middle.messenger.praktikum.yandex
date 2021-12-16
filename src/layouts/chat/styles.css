@@ -3,19 +3,11 @@
   height: 100vh;
 }
 
-.chat_side {
+.chat_left-side {
   display: flex;
   flex-direction: column;
-}
-
-.chat_side__left {
   width: 320px;
   min-width: 320px;
   border-right: 1px solid var(--color-black);
   background-color: var(--color-dark-green);
-}
-
-.chat_side__right {
-  background-color: var(--color-white);
-  flex-grow: 1;
 }

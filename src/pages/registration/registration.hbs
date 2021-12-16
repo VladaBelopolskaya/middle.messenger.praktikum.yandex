@@ -1,24 +1,14 @@
-{{#> entry}}
-{{#*inline "content"}}
+<form class="{{styles.registration_form}}" autocomplete="off">
+    {{{title}}}
+    {{{emailInput}}}
+    {{{loginInput}}}
+    {{{firstNameInput}}}
+    {{{secondNameInput}}}
+    {{{phoneInput}}}
+    {{{passwordInput}}}
+    {{{button}}}
 
-{{#> card}}
-{{#*inline "content"}}
-
-{{> title text="Create an account" marginBottom=true}}
-{{> input label="Email" type="email" inputName="email" errorText="Error"}}
-{{> input label="Login" type="text" inputName="login" errorText="Error"}}
-{{> input label="First Name" type="text" inputName="first_name" errorText="Error"}}
-{{> input label="Second Name" type="text" inputName="second_name" errorText="Error"}}
-{{> input label="Phone" type="text" inputName="phone" errorText="Error"}}
-{{> input label="Password" type="password" inputName="password" errorText="Error"}}
-
-{{> button id="createAccount" text="Create" yellow=true marginTop=true}}
-
-<p class="{{styles.signin_text}}">Already have an account? <a class="{{styles.signin_link}}" href="/signin">Sign in</a>
-</p>
-
-{{/inline}}
-{{/card}}
-
-{{/inline}}
-{{/entry}}
+    <p class="{{styles.signin_text}}">Already have an account? <a class="{{styles.signin_link}}" href="/signin">Sign
+            in</a>
+    </p>
+</form>

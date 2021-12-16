@@ -1,10 +1,13 @@
+.registration_form {
+  display: flex;
+  flex-direction: column;
+}
+
 .signin_text {
   font-size: 18px;
   line-height: 18px;
   text-align: center;
-
   color: var(--color-black);
-
   margin-top: 30px;
 }
 

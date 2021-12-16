@@ -1,2 +1,0 @@
-import "./entry";
-import "./chat";

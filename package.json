@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel index.html --no-cache -p 3000",
     "server": "node ./server.js",
-    "build": "parcel build index.html --no-cache"
+    "build": "parcel build index.html --no-cache",
+    "checkEslint": "eslint ./src/**/*.ts"
   },
   "author": "",
   "license": "ISC",

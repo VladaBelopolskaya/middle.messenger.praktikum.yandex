@@ -7,6 +7,7 @@ enum METHODS {
 
 type MethodOptions = {
   header?: { [key: string]: string };
+  // В data по большей части будут приходить "plain objects", которые не соответсвуют XMLHttpRequestBodyInit
   data?: XMLHttpRequestBodyInit;
   timeout?: number;
 };
@@ -51,6 +52,7 @@ class HTTPTransport {
   public delete = (url: string, options: MethodOptions = {}) =>
     this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
+  // eslint-disable-next-line
   private request = (url: string, options: RequestOptions, timeout = 5000) => {
     const { method, header, data } = options;
 

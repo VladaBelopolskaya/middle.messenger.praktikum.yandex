@@ -12,6 +12,7 @@ type RestProps = {
 class ErrorStub extends Block<RestProps> {
   setInitialChildren() {
     // TODO: добавить обработку перезаписи
+    // TODO: рендерить только нужных детей, а не всех сразу
     this.children.errorCode404 = new Title({
       text: '404',
       white: true,

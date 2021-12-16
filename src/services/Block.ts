@@ -194,7 +194,7 @@ class Block<RestProps = any, Props = RestProps> {
   // eslint-disable-next-line
   public componentDidMount(oldProps) {}
 
-  // eslint-disable-next-line class-methods-use-this
+  // eslint-disable-next-line
   public addEventsToTemplateComponents() {}
 }
 

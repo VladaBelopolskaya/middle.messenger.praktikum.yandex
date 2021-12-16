@@ -1,6 +1,6 @@
 import template from './button.hbs';
 import styles from './styles.css';
-import Block, { BrowserEvents } from '../../services/Block';
+import Block from '../../services/Block';
 
 type RestProps = {
   green?: boolean;
@@ -13,11 +13,18 @@ type RestProps = {
   type?: 'submit';
 };
 
-type Props = RestProps & {
-  browserEvents?: BrowserEvents;
-};
+// TODO: color?: 'green' | 'red' | 'yellow'
+// Handlebars.registerHelper("class", function(styles, prefix, postfix) {
+//   return styles[prefix + postfix];
+// });
+// color: 'red',
 
-class Button extends Block<RestProps, Props> {
+// type Props = RestProps & {
+//   browserEvents?: BrowserEvents;
+// };
+// class="{{styles.button}} {{class styles "button__" color}}
+
+class Button extends Block<RestProps> {
   render() {
     return this.compile(template, {
       ...this.restProps,

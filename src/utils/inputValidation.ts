@@ -115,6 +115,7 @@ function getErrorTextOnValidationPhone(value: string) {
 
 function getErrorTextOnValidationEmail(value: string) {
   const isCorrectRegExp =
+    // eslint-disable-next-line
     /[^.][A-Za-z0-9!#$%&'*+-\/\.=?^_`{|}~]+[^.]@[A-Za-z]+\.[A-Za-z]+/;
   if (!isCorrectRegExp.test(value)) {
     return 'Enter valid email';

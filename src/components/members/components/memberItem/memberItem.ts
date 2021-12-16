@@ -1,10 +1,10 @@
-import template from "./memberItem.hbs";
-import styles from "./styles.css";
+import template from './memberItem.hbs';
+import styles from './styles.css';
 
-import removeIcon from "../../../../icons/remove.svg";
-import Block from "../../../../services/Block";
-import UserInfo from "../../../userInfo";
-import { PATH_NAMES } from "../../../../utils/url";
+import removeIcon from '../../../../icons/remove.svg';
+import Block from '../../../../services/Block';
+import UserInfo from '../../../userInfo';
+import { PATH_NAMES } from '../../../../utils/url';
 
 type RestProps = { name: string };
 
@@ -15,11 +15,11 @@ class MemberItem extends Block<RestProps> {
   }
 
   addEventsToTemplateComponents() {
-    const deleteButton = this.getContent().querySelector("button");
+    const deleteButton = this.getContent().querySelector('button');
     const redirectToError = () => {
       window.location.href = PATH_NAMES.SERVICE_UNAVAILABLE;
     };
-    deleteButton?.addEventListener("click", redirectToError);
+    deleteButton?.addEventListener('click', redirectToError);
   }
 
   render() {

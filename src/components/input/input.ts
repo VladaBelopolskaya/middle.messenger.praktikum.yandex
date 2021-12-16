@@ -54,7 +54,7 @@ class Input extends Block<RestProps> {
     return this.compile(template, {
       ...this.restProps,
       type: this.restProps.type || 'text',
-      disabled: !!this.restProps.isDisabled,
+      disabled: this.restProps.isDisabled,
       styles,
     });
   }

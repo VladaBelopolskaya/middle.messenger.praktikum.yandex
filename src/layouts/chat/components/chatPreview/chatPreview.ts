@@ -1,9 +1,9 @@
-import template from "./chatPreview.hbs";
-import styles from "./styles.css";
+import template from './chatPreview.hbs';
+import styles from './styles.css';
 
-import Block from "../../../../services/Block";
-import Avatar from "../../../../components/avatar";
-import { PATH_NAMES } from "../../../../utils/url";
+import Block from '../../../../services/Block';
+import Avatar from '../../../../components/avatar';
+import { PATH_NAMES } from '../../../../utils/url';
 
 export type PreviewData = {
   name: string;
@@ -31,7 +31,7 @@ class ChatPreview extends Block<RestProps> {
     const redirectToChat = () => {
       window.location.href = `${PATH_NAMES.CHAT}/${this.restProps.id}`;
     };
-    chatPreviewWrapper.addEventListener("click", redirectToChat);
+    chatPreviewWrapper.addEventListener('click', redirectToChat);
   }
 
   render() {

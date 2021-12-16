@@ -17,14 +17,10 @@ import Title from '../../components/title';
 import ChatMessage from './components/chatMessage';
 import MessageControls from './components/messageControls';
 
+import { Message } from '../../types/message';
+
 type RestProps = {
-  messages: {
-    name: string;
-    time: string;
-    message: string;
-    unreadCount: string;
-    isMyMessage: boolean;
-  }[];
+  messages: Message[];
 };
 
 class Main extends Block<RestProps> {

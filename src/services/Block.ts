@@ -2,6 +2,7 @@ import { TemplateDelegate } from 'handlebars';
 import { v4 as uuidv4 } from 'uuid';
 
 import EventBus from './EventBus';
+import { ObjectLiteral } from '../types/common';
 
 export type BrowserEvents = { events: string[]; func: (event: any) => void }[];
 
@@ -50,8 +51,8 @@ class Block<RestProps = any, Props = RestProps> {
 
   // добавить поддержку детей в массиве
   static separateProps(props: any) {
-    const children: { [key: string]: any } = {};
-    const restProps: { [key: string]: any } = {};
+    const children: ObjectLiteral = {};
+    const restProps: ObjectLiteral = {};
     let browserEvents: BrowserEvents = [];
     Object.entries(props).forEach(([key, value]) => {
       if (isBrowserEvents({ key, value })) {
@@ -148,10 +149,9 @@ class Block<RestProps = any, Props = RestProps> {
 
   private addEvents() {
     if (this.browserEvents.length && this.element) {
-      const elementForListener = this.element;
       this.browserEvents.forEach((item) => {
         item.events.forEach((event) => {
-          elementForListener.addEventListener(event, item.func.bind(this));
+          this.element.addEventListener(event, item.func.bind(this));
         });
       });
     }

@@ -1,9 +1,9 @@
-import template from './modal.hbs';
-import styles from './styles.css';
+import template from "./modal.hbs";
+import styles from "./styles.css";
 
-import Block from '../../services/Block';
-import Card from '../card';
-import { PATH_NAMES } from '../../utils/url';
+import Block from "../../services/Block";
+import Card from "../card";
+import { PATH_NAMES } from "../../utils/url";
 
 type RestProps = {};
 
@@ -17,11 +17,12 @@ class Modal extends Block<RestProps> {
 
   addEventsToTemplateComponents() {
     const modalWrapper = this.getContent();
-    modalWrapper.addEventListener('click', (e) => {
-      if (e.target === modalWrapper) {
+    const redirectToChat = (event: any) => {
+      if (event.target === modalWrapper) {
         window.location.href = PATH_NAMES.CHAT;
       }
-    });
+    };
+    modalWrapper.addEventListener("click", redirectToChat);
   }
 
   render() {

@@ -14,6 +14,8 @@
 - `npm run build` — build the project with a Parsel
 - `npm run server` - run the project with a NodeJS (use after `npm run build`)
 
+## Tasks for Sprint 3:
+
 ## Tasks for Sprint 1:
 
 - Draw screen prototypes (authorization, registration, chat list, profile settings, chat setting);
